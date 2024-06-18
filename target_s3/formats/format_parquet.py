@@ -396,7 +396,7 @@ class FormatParquet(FormatBase):
             ParquetWriter(
                 f"{self.fully_qualified_key}.{self.extension}",
                 df.schema,
-                compression="gzip",  # TODO: support multiple compression types
+                compression="snappy",  # TODO: support multiple compression types
                 filesystem=self.file_system,
             ).write_table(df)
         except Exception as e:

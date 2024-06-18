@@ -46,7 +46,7 @@ class FormatBase(metaclass=ABCMeta):
 
         self.context = context
         self.extension = extension
-        self.compression = "gz"  # TODO: need a list of compatible compression types
+        self.compression = "sz"  # TODO: need a list of compatible compression types
 
         self.stream_name_path_override = config.get("stream_name_path_override", None)
 
