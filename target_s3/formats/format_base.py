@@ -49,7 +49,10 @@ class FormatBase(metaclass=ABCMeta):
 
         self.stream_name_path_override = config.get("stream_name_path_override", None)
 
-        if self.cloud_provider.get("cloud_provider_type", None) == "aws":
+        if (
+            self.cloud_provider.get("cloud_provider_type", None) == "aws"
+            or self.cloud_provider.get("cloud_provider_type", None) == "local"
+        ):
             aws_config = self.cloud_provider.get("aws", None)
             # assert aws_config, "FormatBase.__init__: Expecting aws in configuration"
 
