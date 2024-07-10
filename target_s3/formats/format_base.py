@@ -29,7 +29,6 @@ def format_type_factory(object_type_class, *pargs, **kargs):
 
 
 class FormatBase(metaclass=ABCMeta):
-
     """This is the object type base class"""
 
     def __init__(self, config: dict, context: dict, extension: str) -> None:
@@ -52,7 +51,7 @@ class FormatBase(metaclass=ABCMeta):
 
         if self.cloud_provider.get("cloud_provider_type", None) == "aws":
             aws_config = self.cloud_provider.get("aws", None)
-            assert aws_config, "FormatBase.__init__: Expecting aws in configuration"
+            # assert aws_config, "FormatBase.__init__: Expecting aws in configuration"
 
             self.bucket = aws_config.get("aws_bucket", None)  # required
             self.session = Session(
