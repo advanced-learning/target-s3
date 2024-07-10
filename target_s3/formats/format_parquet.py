@@ -39,6 +39,8 @@ class FormatParquet(FormatBase):
                         "aws_endpoint_override", None
                     ),
                 )
+            if cloud_provider == "local":
+                return fs.LocalFileSystem()
         except Exception as e:
             self.logger.error("Failed to create parquet file system.")
             self.logger.error(e)

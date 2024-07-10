@@ -50,7 +50,7 @@ class Targets3(Target):
                                          resulting parquet file based on taps. Doesn't \
                                          work with 'anyOf' types or when complex data is\
                                          not defined at element level. Doesn't work with \
-                                         validate option for now."
+                                         validate option for now.",
                         ),
                     ),
                     required=False,
@@ -74,7 +74,7 @@ class Targets3(Target):
                     "cloud_provider_type",
                     th.StringType,
                     required=True,
-                    allowed_values=["aws"],  # TODO: configure this from class
+                    allowed_values=["aws", "local"],  # TODO: configure this from class
                 ),
                 th.Property(
                     "aws",
