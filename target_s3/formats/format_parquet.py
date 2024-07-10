@@ -40,7 +40,12 @@ class FormatParquet(FormatBase):
                     ),
                 )
             if cloud_provider == "local":
-                return fs.LocalFileSystem()
+                efEs = fs.LocalFileSystem()
+                # creates an additional folder using the filename
+                efEs.create_dir(self.fully_qualified_key)
+                # hack to remove that filename folder
+                efEs.delete_dir(self.fully_qualified_key)
+                return efEs
         except Exception as e:
             self.logger.error("Failed to create parquet file system.")
             self.logger.error(e)
